@@ -2,6 +2,8 @@
 
 A hands-on Kubernetes learning repo — YAML examples organized by topic, from Pods to GitOps.
 
+**Author:** Sachin Gate — DevOps Engineer
+
 ---
 
 ## Roadmap
