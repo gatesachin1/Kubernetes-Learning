@@ -1,0 +1,19 @@
+### Golden Rule in YAML — apiVersion, kind, metadata and spec are always at the same level
+
+apiVersion: v1
+kind: Pod
+metadata:
+  name: my-pod
+  labels:
+    app: my-app
+    environment: staging
+spec:
+    containers:
+      - name: my-container
+        image: nginx:latest
+        ports:
+          - containerPort: 80
+        
+      - name: sidecar           
+        image: busybox
+        command: ["sh","-c","while true; do echo logging; sleep 5; done"]

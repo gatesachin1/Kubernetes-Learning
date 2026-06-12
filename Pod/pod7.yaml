@@ -1,0 +1,14 @@
+## Pod from Private ECR Registry
+
+apiVersion: v1
+kind: Pod
+metadata:
+  name: ecr-pod
+spec:
+  imagePullSecrets:
+    - name: ecr-secret
+  containers:
+    - name: app
+      image: 654654392564.dkr.ecr.us-east-1.amazonaws.com/my-web-app:latest
+      ports: 
+        - containerPort: 80

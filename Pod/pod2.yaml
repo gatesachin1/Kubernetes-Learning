@@ -1,0 +1,16 @@
+## Pod with Init Container
+## An Init Container runs before the main application container starts
+
+apiVersion: v1
+kind: Pod
+metadata:
+  name: init-pod
+spec:
+  initContainers:
+  - name: wait-for-db
+    image: busybox
+    command: ['sh','-c','until nc -z db-service 5432; do sleep 2; done']
+
+  containers:
+  - name: app
+    image: my-app:v1

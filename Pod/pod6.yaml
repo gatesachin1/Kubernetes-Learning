@@ -1,0 +1,12 @@
+## Pod with Node Selector
+
+apiVersion: v1
+kind: Pod
+metadata:
+  name: node-selector-pod
+spec:
+  nodeSelector:
+    disktype: ssd            # runs only on nodes with this label
+  containers:
+  - name: app
+    image: nginx

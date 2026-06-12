@@ -1,0 +1,28 @@
+## Pod with Health Probes
+
+apiVersion: v1
+kind: Pod
+metadata:
+  name: probe-pod
+spec:
+  containers:
+    - name: app
+      image: nginx:latest
+
+      env:
+      - name: APP_ENV
+        value: production
+
+      livenessProbe:
+        httpGet:
+          path: /
+          port: 80
+        initialDelaySeconds: 10
+        periodSeconds: 5
+      readinessProbe:
+        httpGet:
+          path: /
+          port: 80
+        initialDelaySeconds: 5
+        periodSeconds: 3
+  
